@@ -4,10 +4,14 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "NEXT_DISABLE_TURBOPACK=1 next build",
-    "start": "next start",
+    "prebuild": "node scripts/clean-next-dev.mjs",
+    "build": "next build --webpack",
+    "postbuild": "node scripts/verify-export.mjs",
     "lint": "eslint",
     "kill-port": "npx kill-port 3000"
+  },
+  "engines": {
+    "node": ">=20.9.0"
   },
   "dependencies": {
     "@tailwindcss/postcss": "^4.2.1",

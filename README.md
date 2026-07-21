@@ -32,7 +32,9 @@ menyalin file HTML-nya. HTML hasil Next.js merujuk ke aset ber-hash di
 
 Script `postbuild` memeriksa bahwa setiap aset lokal yang dirujuk oleh HTML memang
 ada di dalam `out`. Jika ada yang hilang, deployment akan berhenti sebelum versi
-rusak dipublikasikan.
+rusak dipublikasikan. Jika lingkungan build Hostinger menonaktifkan tahap export
+bawaan Next.js, script ini juga menyusun `out` dari hasil build lengkap `.next`
+sebelum melakukan pemeriksaan yang sama.
 
 Setelah mengubah pengaturan di hPanel, lakukan **Settings and redeploy** agar
 Hostinger membangun ulang dari commit terbaru dan mengganti deployment lama
